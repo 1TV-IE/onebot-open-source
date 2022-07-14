@@ -1,4 +1,1 @@
-
-Hello,
-
 Please edit "input.txt" to your schedule.
