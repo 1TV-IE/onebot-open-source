@@ -1,10 +1,10 @@
-// Require the necessary discord.js classes
+
 const { Client, Intents } = require('discord.js');
 const { token } = require('./config.json');
 const { MessageActionRow, MessageButton, MessageEmbed } = require('discord.js');
 const wait = require('node:timers/promises').setTimeout;
 var fs = require("fs");
-// Asynchronous read
+
 fs.readFile('input.txt', function (err, data) {
    if (err) {
       return console.error(err);
@@ -12,14 +12,14 @@ fs.readFile('input.txt', function (err, data) {
    console.log("Fetched data: " + data.toString());
 });
 
-// Create a new client instance
 const client = new Client({ intents: [Intents.FLAGS.GUILDS] });
 
 client.once('ready', () => {
         console.log('Ready!');
         client.user.setPresence({ activities: [{ name: 'ONE - https://one-tv.co.uk' }], status: 'dnd' });
 });
-//normal cmds
+
+// normal cmds
 const exampleEmbed = new MessageEmbed()
 	.setColor('#009cfa')
 	.setTitle('Somehow embeds also work')

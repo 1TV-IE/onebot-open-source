@@ -17,7 +17,6 @@ const commands = [
 
 	.map(command => command.toJSON());
 
-// Place your client and guild ids here
 const clientId = '';
 const guildId = '';
 
