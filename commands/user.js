@@ -1,17 +1,17 @@
-const { SlashCommandBuilder, EmbedBuilder } = require('@discordjs/builders')
+const { SlashCommandBuilder, EmbedBuilder } = require('@discordjs/builders');
 
 module.exports = {
   data: new SlashCommandBuilder()
     .setName('user')
     .setDescription('Replies with your user information'),
   async execute(interaction) {
-    const member = interaction.member
-    const user = member.user
+    const member = interaction.member;
+    const user = member.user;
     const avatar = user.avatarURL({
       format: 'png',
       dynamic: true,
       size: 512
-    })
+    });
     const embed = new EmbedBuilder()
       .setTitle(`User info: ${user.tag}`)
       .setColor(member.roles.highest.color)
@@ -50,7 +50,7 @@ module.exports = {
             .join(', ')
             .slice(0, -1)
         }
-      )
-    await interaction.reply({ embeds: [embed], ephemeral: true })
+      );
+    await interaction.reply({ embeds: [embed], ephemeral: true });
   }
-}
+};

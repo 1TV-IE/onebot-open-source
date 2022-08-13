@@ -1,5 +1,5 @@
-const { SlashCommandBuilder } = require('@discordjs/builders')
-const { clientId } = require('../config.json')
+const { SlashCommandBuilder } = require('@discordjs/builders');
+const { clientId } = require('../config.json');
 
 module.exports = {
   data: new SlashCommandBuilder()
@@ -9,6 +9,6 @@ module.exports = {
     await interaction.reply({
       content: `Bot invite: https://discord.com/api/oauth2/authorize?client_id=${clientId}&permissions=8&scope=bot%20applications.commands`,
       ephemeral: true
-    })
+    });
   }
-}
+};

@@ -1,4 +1,4 @@
-const { SlashCommandBuilder } = require('@discordjs/builders')
+const { SlashCommandBuilder } = require('@discordjs/builders');
 
 module.exports = {
   data: new SlashCommandBuilder()
@@ -9,11 +9,11 @@ module.exports = {
       content: 'Pinging...',
       fetchReply: true,
       ephemeral: true
-    })
+    });
     interaction.editReply(
       `Roundtrip latency: ${
         sent.createdTimestamp - interaction.createdTimestamp
       }ms`
-    )
+    );
   }
-}
+};

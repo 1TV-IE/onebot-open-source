@@ -1,4 +1,4 @@
-const { SlashCommandBuilder, EmbedBuilder } = require('@discordjs/builders')
+const { SlashCommandBuilder, EmbedBuilder } = require('@discordjs/builders');
 
 module.exports = {
   data: new SlashCommandBuilder()
@@ -14,7 +14,7 @@ module.exports = {
         text: 'ONE',
         iconURL:
           'https://images-ext-1.discordapp.net/external/l0yPv28Wx8nmBknv8TGDyYtP23WsjmCtqmAMgLDIplo/https/pbs.twimg.com/profile_images/1513271977703878660/sJnJodt1_400x400.jpg'
-      })
-    await interaction.reply({ embeds: [exampleEmbed] })
+      });
+    await interaction.reply({ embeds: [exampleEmbed] });
   }
-}
+};

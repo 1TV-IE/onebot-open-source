@@ -1,5 +1,5 @@
-const { SlashCommandBuilder } = require('@discordjs/builders')
-const { serverInviteCode } = require('../config.json')
+const { SlashCommandBuilder } = require('@discordjs/builders');
+const { serverInviteCode } = require('../config.json');
 
 module.exports = {
   data: new SlashCommandBuilder()
@@ -9,6 +9,6 @@ module.exports = {
     await interaction.reply({
       content: `https://discord.gg/${serverInviteCode}`,
       ephemeral: true
-    })
+    });
   }
-}
+};
