@@ -3,9 +3,9 @@
 ONEBot, but open source :grin:
 
 Prerequisites:
-Node.js v16.9.0+
-discord.js v14
-I probably missed something - if you get an error, just run npm install `whatever`
+Node.js v16.9.0+  
+discord.js v14  
+I probably missed something - if you get an error, just run `npm install whatever`
 
 # Installation
 
