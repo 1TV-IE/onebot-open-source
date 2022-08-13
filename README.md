@@ -32,7 +32,7 @@ make le config.json file, should look something like this:
 deploy the commands and run!
 
 ```bash
-$ npm deploy
+$ npm run deploy
 ...
 $ npm start
 ```
