@@ -12,18 +12,20 @@ I probably missed something - if you get an error, just run `npm install whateve
 ###### oh the joys
 
 clone and install dependencies
+
 ```bash
 $ git clone https://github.com/1TV-IE/onebot-open-source.git
 $ npm install
 ```
 
 make le config.json file, should look something like this:
+
 ```json
 {
-    "token": "discord-bot-token",
-    "clientId": "bot-user-id",
-    "guildId": "bot-guild-id",
-    "serverInviteCode": "bot-server-invite-code"
+  "token": "discord-bot-token",
+  "clientId": "bot-user-id",
+  "guildId": "bot-guild-id",
+  "serverInviteCode": "bot-server-invite-code"
 }
 ```
 
