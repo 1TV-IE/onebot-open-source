@@ -1,4 +1,4 @@
-const { readFile, readdir } = require('node:fs')
+const { readFile, readdir } = require('fs/promises')
 const path = require('node:path')
 
 const { Client, Collection, GatewayIntentBits } = require('discord.js')
@@ -6,24 +6,16 @@ const { token } = require('./config.json')
 
 const client = new Client({ intents: [GatewayIntentBits.Guilds] })
 
-client.schedule = readFile('schedule.txt', function (err, data) {
-  if (err) {
-    return console.error(err)
-  } else {
-    const stringData = data.toString()
-    console.log('Fetched data: ' + stringData)
-    return stringData
-  }
-})
+readFile('schedule.txt')
+  .then((data) => console.log(`Fetched data:\n${data.toString()}`))
+  .catch(console.error)
 
 client.commands = new Collection()
 
 const commandsPath = path.join(__dirname, 'commands')
 
-readdir(commandsPath, (err, files) => {
-  if (err) {
-    return console.error(err)
-  } else {
+readdir(commandsPath)
+  .then((files) => {
     files
       .filter((file) => path.extname(file) === '.js')
       .forEach((file) => {
@@ -31,8 +23,8 @@ readdir(commandsPath, (err, files) => {
         const command = require(filePath)
         client.commands.set(command.data.name, command)
       })
-  }
-})
+  })
+  .catch(console.error)
 
 client.once('ready', () => {
   console.log(`Ready! Logged in as ${client.user.tag}`)
