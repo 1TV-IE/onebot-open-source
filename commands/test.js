@@ -10,7 +10,7 @@ module.exports = {
             .setColor("#009cfa")
             .setTitle("Somehow embeds also work")
             .setDescription(
-                `This tuns on a VPS now so don't expect much downtime`
+                `This runs on a VPS now so don't expect much downtime`
             )
             .setTimestamp()
             .setFooter({
