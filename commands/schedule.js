@@ -7,7 +7,7 @@ module.exports = {
     .setDescription('Get the programming schedule for ONE'),
   async execute(interaction) {
     const msg = await interaction.reply({
-      content: '<:loading:997111113734959134> Checking...',
+      content: '<a:loading:997111113734959134> Checking...',
       fetchReply: true
     });
     const schedule = await readFile('./schedule.txt');
