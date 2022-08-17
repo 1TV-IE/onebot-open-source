@@ -6,13 +6,13 @@ module.exports = {
     .setName('schedule')
     .setDescription('Get the programming schedule for ONE'),
   async execute(interaction) {
-    await interaction.reply({
+    const msg = await interaction.reply({
       content: '<:loading:997111113734959134> Checking...',
       fetchReply: true
     });
     const schedule = await readFile('./schedule.txt');
     const embed = new EmbedBuilder()
-      .setColor('#009cfa')
+      .setColor(0x009cfa)
       .setTitle('Program Schedule')
       .setDescription(schedule.toString())
       .setFooter({
