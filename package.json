@@ -1,0 +1,33 @@
+{
+  "name": "onebot",
+  "version": "2.0.0",
+  "description": "Discord bot for ONE Network",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index",
+    "deploy": "node deploy-commands"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/1TV-IE/onebot-open-source.git"
+  },
+  "keywords": [
+    "network",
+    "one-tv",
+    "discord",
+    "bot"
+  ],
+  "author": "ryan@one-tv.co.uk",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/1TV-IE/onebot-open-source/issues"
+  },
+  "homepage": "https://github.com/1TV-IE/onebot-open-source#readme",
+  "dependencies": {
+    "discord.js": "^14.2.0"
+  },
+  "devDependencies": {
+    "prettier": "^2.7.1"
+  }
+}

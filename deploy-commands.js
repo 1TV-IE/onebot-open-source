@@ -1,40 +1,35 @@
+const fs = require('fs/promises');
+const path = require('node:path');
+
 const { REST } = require('@discordjs/rest');
 const { Routes } = require('discord-api-types/v9');
-const { token } = require('./config.json');
-const fs = require('node:fs');
-const { SlashCommandBuilder } = require('@discordjs/builders');
+const { clientId, guildId, token } = require('./config.json');
 
-const commands = [
-	new SlashCommandBuilder().setName('pong').setDescription('Replies with pong!'),
-	new SlashCommandBuilder().setName('server').setDescription('Replies with server info!'),
-	new SlashCommandBuilder().setName('user').setDescription('Replies with user info!'),
-	new SlashCommandBuilder().setName('test').setDescription('Replies with test info!'),
-	new SlashCommandBuilder().setName('ping').setDescription('Replies with the ping to NBC (new broadcasting centre)'),
-	new SlashCommandBuilder().setName('schedule').setDescription('Replies with the newest schedule'),
-	new SlashCommandBuilder().setName('invite').setDescription('Get an invite to join our server.'),
-	new SlashCommandBuilder().setName('botinvite').setDescription('Invite this bot!'),
-]
-
-	.map(command => command.toJSON());
-
-// Place your client and guild ids here
-const clientId = '';
-const guildId = '';
-
+const commandsPath = path.join(__dirname, 'commands');
+const commands = [];
+fs.readdir(commandsPath)
+  .then((files) => {
+    files
+      .filter((file) => path.extname(file) === '.js')
+      .forEach((file) => {
+        const filePath = path.join(commandsPath, file);
+        const command = require(filePath);
+        commands.push(command);
+      });
+  })
+  .catch(console.error);
 
 const rest = new REST({ version: '10' }).setToken(token);
 
 (async () => {
-	try {
-		console.log('Started refreshing application (/) commands.');
+  console.log('Refreshing application (/) commands...');
 
-		await rest.put(
-			Routes.applicationCommands(clientId),
-			{ body: commands },
-		);
-
-		console.log('Successfully reloaded application (/) commands.');
-	} catch (error) {
-		console.error(error);
-	}
+  try {
+    await rest.put(Routes.applicationGuildCommands(clientId, guildId), {
+      body: commands
+    });
+    console.log('Successfully refreshed application (/) commands.');
+  } catch (error) {
+    console.error(error);
+  }
 })();
