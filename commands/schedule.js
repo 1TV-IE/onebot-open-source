@@ -22,7 +22,8 @@ module.exports = {
       });
     await interaction.editReply({
       content: 'Done!',
-      embeds: [embed]
+      embeds: [embed],
+      ephemeral: true
     });
   }
 };
