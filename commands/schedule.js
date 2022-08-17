@@ -8,7 +8,8 @@ module.exports = {
   async execute(interaction) {
     const msg = await interaction.reply({
       content: '<a:loading:997111113734959134> Checking...',
-      fetchReply: true
+      fetchReply: true,
+      ephemeral: true
     });
     const schedule = await readFile('./schedule.txt');
     const embed = new EmbedBuilder()
